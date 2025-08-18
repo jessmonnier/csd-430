@@ -1,0 +1,187 @@
+/*
+Jess Monnier
+CSD-430 Server Side Development
+Created: 7 April 2025
+Updated: 17 Aug 2025
+*/
+body, footer {
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 18px;
+    margin: 0px;
+}
+body {
+    padding: 0px;
+}
+footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: #4b7fc7;
+    color: #fff;
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+footer div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* Index header (it's a bit taller) */
+#header {
+    background-image: url('p/bg.jpg');
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: top left;
+    width: 100%;
+    height: 250px;
+    margin: 0px;
+    padding: 0px;
+}
+#title {
+    float: left;
+    margin: 20px;
+    font-weight: 500;
+    font-size: 30px;
+    color: #051373;
+}
+#nav {
+    float: right;
+    margin: 25px;
+    font-size: 25px;
+}
+#nav a, #title a, #title span {
+    padding: 10px;
+    border-radius: 10%;
+}
+#nav a:hover, #title a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(5, 19, 114, 0.2);
+}
+/* This is used to style the current page's nav text, e.g. 
+    "About" in the nav bar when on the About page. */
+.current {
+    font-weight: 400;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    color: #142486;
+    border-radius: 10%;
+    box-shadow: 0 4px 8px 0 rgba(5, 19, 114, 0.2);
+}
+#container {
+    margin-left: 80px;
+    margin-right: 80px;
+    padding-top: 20px;
+}
+/* Used to create space for the fixed footer */
+#pad {
+    height: 80px;
+}
+h1 {
+    font-weight: 500;
+    font-size: 25px;
+    color: #3847a6;
+}
+h2 {
+    font-weight: 500;
+    font-size: 20px;
+    color: #051372;
+}
+a {
+    color: #142486;
+    text-decoration: none;
+    font-weight: 500;
+}
+a:hover {
+    color: #3847a6;
+}
+ul {
+    list-style: none;
+    position: relative;
+}
+li::before {
+    color: #051372;
+    content: '➺';
+    position: absolute;
+    left: 4px;
+}
+/* Used on the about page to achieve the image inline with text */
+.inline-text {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+.inline-text p {
+    text-indent: 40px;
+}
+/* Used on the about page to achieve the image inline with text */
+.image-right {
+    float: right;
+    text-align: center;
+    width: 27%;
+    margin: auto;
+}
+.gal-img {
+    width: 95%;
+    height: auto;
+    border-radius: 5%;
+}
+#gallery {
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#gallery div {
+    margin: auto;
+}
+figure {
+    margin-bottom: 0px;
+    text-align: center;
+}
+figcaption {
+    text-align: center;
+    font-size: 14px;
+    color: #051372;
+}
+/* rgb(75, 127, 199) = #4b7fc7 (the footer color) */
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(75, 127, 199, 0.25), rgba(75, 127, 199, 1), rgba(75, 127, 199, 0.25));
+}
+
+/* Default table style so it's not too uggo */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    font-family: "Mulish", sans-serif;
+    color: #051372;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(5, 19, 114, 0.1);
+}
+
+th, td {
+    border: 1px solid #4b7fc7;
+    text-align: left;
+    padding: 12px 15px;
+}
+
+th {
+    background-color: #4b7fc7;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f7fc;
+}
+
+tr:hover {
+    background-color: #e0ecff;
+}
