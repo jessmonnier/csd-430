@@ -39,7 +39,7 @@ HTML, CSS, JavaScript, and MySQL.
         <p>
             This is a project DM party tracker created as an assignment for my college Server Side Development course.
             It works with a MySQL database. To view the mySQL configuration necessary to work with this, please 
-            <a href="https://github.com/jessmonnier/csd-380/blob/main/module-03/db_setup.sql" target="_blank">click here</a>.
+            <a href="https://github.com/jessmonnier/csd-430/blob/main/module-03/db_setup.sql" target="_blank">click here</a>.
         </p>
         <p>
             Required fields in the Add Party and Add Member forms have a dashed pink border if no valid data has been added.
