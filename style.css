@@ -2,7 +2,7 @@
 Jess Monnier
 CSD-430 Server Side Development
 Created: 7 April 2025
-Updated: 17 Aug 2025
+Updated: 23 Aug 2025
 */
 body, footer {
     font-family: "Mulish", sans-serif;
@@ -184,4 +184,95 @@ tr:nth-child(even) {
 
 tr:hover {
     background-color: #e0ecff;
+}
+
+/* Party info header above each table */
+.party-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;     /* Align items to the start */
+    align-items: center;             /* Align vertically in the middle */
+    flex-wrap: nowrap;
+    background-color: #e8efff;
+    border: 1px solid #4b7fc7;
+    border-radius: 6px;
+    padding: 10px 20px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(5, 19, 114, 0.1);
+}
+
+.party-header h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #051372;
+    font-weight: 500;
+    margin-right: 40px;  /* Adds space between name and info */
+}
+
+.party-info {
+    font-size: 16px;
+    color: #3847a6;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+button.form-toggle {
+    margin: 10px 0;
+    padding: 6px 12px;
+    background-color: #4b7fc7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button.form-toggle:hover {
+    background-color: #385fa3;
+}
+
+.hidden {
+    display: none;
+}
+
+form.party-form,
+form.member-form {
+    background-color: #f7faff;
+    border: 1px solid #4b7fc7;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(5, 19, 114, 0.1);
+}
+
+form input, form select {
+    margin: 5px;
+    padding: 6px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+form input[type="number"] {
+    width: 50px;
+}
+
+form input[type="text"] {
+    width: 140px;
+}
+
+form button {
+    margin-top: 10px;
+    background-color: #4b7fc7;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input:required:invalid,
+select:required:invalid {
+    border: 1px dashed #ff66b2; /* medium pink */
 }

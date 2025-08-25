@@ -17,8 +17,8 @@ import com.books.Book;
 public class BooksServlet extends HttpServlet {
 
     private static final String DB_URL = "jdbc:mysql://localhost:3306/jsp";
-    private static final String DB_USER = "movie_user";
-    private static final String DB_PASS = "popcorn";
+    private static final String DB_USER = "student1";
+    private static final String DB_PASS = "pass";
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
