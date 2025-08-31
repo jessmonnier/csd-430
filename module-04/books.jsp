@@ -3,9 +3,9 @@
 <%@ page import="com.books.Book" %>
 <!--
 Jess Monnier
-CSD-430 Module 2 Assignment
+CSD-430 Module 4 Assignment
 This Page Created: 17 August 2025
-Last Updated: 17 August 2025
+Last Updated: 31 August 2025
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,12 @@ Last Updated: 17 August 2025
         <div id="title"><span>Playing with JSP</span></div>
     </div>
     <div id="container">
-        <h1>Module 2: A Book I Enjoy</h1>
+        <h1>Module 4: Books I Enjoy</h1>
+        <p>
+            Module 2 but as a JavaBean! <a href="https://github.com/jessmonnier/csd-430/blob/main/module-04/db_setup.sql">This script</a>
+            can be used to set up the MySQL database in the same way I did.
+        </p>
+            <!-- A table to hold the database results -->
             <table>
                 <thead>
                     <tr>
@@ -37,15 +42,18 @@ Last Updated: 17 August 2025
                 </thead>
                 <tbody>
                     <%
+                        // Use HTTP request to get the books from the servlet
                         List<Book> books = (List<Book>) request.getAttribute("books");
                         if (books != null && !books.isEmpty()) {
+                            // loop to add each book to the table
                             for (Book book : books) {
                     %>
                         <tr>
-                            <td><img src="module-02/images/<%= book.getCover() %>" alt="<%= book.getTitle() %> cover" width="120"></td>
+                            <td><img src="module-02/images/<%= book.getCover() %>" alt="<%= book.getTitle() %> cover" width="150"></td>
                             <td>
                                 <strong><%= book.getTitle() %></strong><br>
                                 by <%= book.getAuthor() %><br>
+                                Published in <%= book.getYear() %><br>
                                 <p><%= book.getDescription() %></p>
                             </td>
                         </tr>
@@ -53,6 +61,7 @@ Last Updated: 17 August 2025
                             }
                         } else {
                     %>
+                        <!-- Handle what happens when no books are found in database -->
                         <tr><td colspan="2">No books found.</td></tr>
                     <%
                         }
