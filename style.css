@@ -276,3 +276,7 @@ input:required:invalid,
 select:required:invalid {
     border: 1px dashed #ff66b2; /* medium pink */
 }
+
+tr.checked-out {
+    background-color: #ffeeee;
+}
