@@ -2,7 +2,7 @@
 Jess Monnier
 CSD-430 Server Side Development
 Created: 7 April 2025
-Updated: 23 Aug 2025
+Updated: 14 Sep 2025
 */
 body, footer {
     font-family: "Mulish", sans-serif;
@@ -279,4 +279,14 @@ select:required:invalid {
 
 tr.checked-out {
     background-color: #ffeeee;
+}
+
+.feedback-message {
+    background-color: #fff9e6;   /* light yellow background */
+    border: 1px solid #f1c40f;  /* golden yellow border */
+    color: #7d6608;             /* dark mustard text */
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: 500;
 }

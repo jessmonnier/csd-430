@@ -23,6 +23,9 @@ CREATE TABLE jess_library_data (
     description TEXT,
 	checked_out BOOL DEFAULT False,
 	out_date DATE,
+	requested BOOL DEFAULT False,
+	first_request DATE,
+	times_requested INT,
 	primary_genre VARCHAR(100),
 	sub_genre VARCHAR(100),
 	FOREIGN KEY (primary_genre) REFERENCES jess_library_genres(name) ON UPDATE CASCADE,
@@ -33,7 +36,7 @@ CREATE TABLE jess_library_data (
 INSERT INTO jess_library_genres (name) VALUES 
 ("Science Fiction"), ("Fantasy"), ("Horror"), ("Romance"), 
 ("Literary Fiction"), ("Thriller"), ("Mystery"), ("Adventure"), 
-("Young Adult"), ("Children's Fiction"), ("Historical Fiction"), 
+("Young Adult"), ("Childrens Fiction"), ("Historical Fiction"), 
 ("Biography/Memoir"), ("True Crime"), ("Self-Help"), ("History"), 
 ("Travel"), ("Philosophy"), ("Politics"), ("Cooking/Food"), 
 ("Psychology"), ("Science"), ("Business & Economics"), ("Religion"), 
@@ -105,3 +108,12 @@ INSERT INTO jess_library_data (title, author, pub_year, description, primary_gen
 
 -- Adventure (additional)
 ("Treasure Island", "Stevenson, Robert Louis", 1883, "Classic pirate adventure novel.", "Adventure", "Children's Fiction");
+
+-- Requested books
+INSERT INTO jess_library_data (title, author, pub_year, description, primary_genre, sub_genre, requested, first_request, times_requested) VALUES
+("Harrow the Ninth", "Muir, Tamsyn", 2020, "Sequel to Gideon the Ninth; A blend of science fiction, fantasy, and gothic mystery featuring necromancers and deadly puzzles.", "Science Fiction", "Fantasy", TRUE, "2025-05-06", 1),
+("Fourth Wing", "Yarros, Rebecca", 2023, "A young woman enters a brutal war college for dragon riders, testing her strength and courage.", "Fantasy", "Young Adult", TRUE, '2025-05-06', 1),
+("Project Hail Mary", "Weir, Andy", 2021, "A lone astronaut must save Earth from disaster in this thrilling science fiction survival tale.", "Science Fiction", "Adventure", TRUE, '2025-02-04', 1),
+("The Seven Husbands of Evelyn Hugo", "Reid, Taylor Jenkins", 2017, "A reclusive Hollywood legend recounts her scandalous life and career to an aspiring journalist.", "Literary Fiction", "Romance", TRUE, '2025-06-10', 1),
+("Educated", "Westover, Tara", 2018, "A memoir about a woman who escapes her survivalist upbringing and pursues education against the odds.", "Biography/Memoir", "Self-Help", TRUE, '2025-05-06', 1),
+("The Midnight Library", "Haig, Matt", 2020, "A woman finds herself in a mysterious library that allows her to explore alternate versions of her life.", "Philosophy", "Fantasy", TRUE, '2025-05-06', 1);

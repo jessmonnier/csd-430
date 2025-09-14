@@ -1,8 +1,9 @@
 package com.library;
 /* 
  * Jess Monnier
- * CSD-430 Module 5 & 6 Assignment
+ * CSD-430 Module 7 Assignment
  * Created 6 September 2025
+ * Modified 14 September 2025
  * Book JavaBean to hold data from MySQL database row
  */
 
@@ -21,6 +22,9 @@ public class Book implements Serializable {
     private String subgenre;
     private boolean checkedOut;
     private Date outDate;
+    private boolean requested;
+    private Date firstRequest;
+    private int timesRequested;
 
     // JavaBean constructor
     public Book() {}
@@ -28,7 +32,8 @@ public class Book implements Serializable {
     // More useful (for this app) constructor
     public Book(int id, String title, String author, int pubYear,
                 String description, String genre, String subgenre,
-                boolean checkedOut, Date outDate) {
+                boolean checkedOut, Date outDate, boolean requested,
+                Date firstRequest, int timesRequested) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -38,6 +43,9 @@ public class Book implements Serializable {
         this.subgenre = subgenre;
         this.checkedOut = checkedOut;
         this.outDate = outDate;
+        this.requested = requested;
+        this.firstRequest = firstRequest;
+        this.timesRequested = timesRequested;
     }
     
     // getters and setters
@@ -67,4 +75,13 @@ public class Book implements Serializable {
 
     public Date getOutDate() { return outDate; }
     public void setOutDate(Date outDate) { this.outDate = outDate; }
+
+    public boolean isRequested() { return requested; }
+    public void setRequested(boolean requested) { this.requested = requested; }
+
+    public Date getFirstRequest() { return firstRequest; }
+    public void setFirstRequest(Date firstRequest) { this.firstRequest = firstRequest; }
+
+    public int getTimesRequested() { return timesRequested; }
+    public void setTimesRequested(int timesRequested) { this.timesRequested = timesRequested; }
 }
