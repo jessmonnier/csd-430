@@ -183,7 +183,11 @@ public class LibraryServlet extends HttpServlet {
                                 insertStmt.setString(1, title);
                                 insertStmt.setString(2, author);
                                 insertStmt.setString(3, genre);
-                                insertStmt.setString(4, subgenre != null ? subgenre : null);
+                                if (subgenre == null || subgenre.trim().isEmpty()) {
+                                    insertStmt.setNull(4, java.sql.Types.VARCHAR);  // Send SQL NULL
+                                } else {
+                                    insertStmt.setString(4, subgenre);
+                                }
                                 insertStmt.executeUpdate();
                                 request.setAttribute("feedbackMsg", "Book request submitted successfully.");
                             }
