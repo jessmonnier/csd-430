@@ -4,6 +4,7 @@ package com.bookstore;
  * Jess Monnier
  * CSD-430 CRUD Project
  * Created 21 September 2025
+ * Updated 28 September 2025
  * Helper class to interact with MySQL database
  * Methods:
  * * getAllGenres()	        Fetches genres for dropdowns
@@ -11,6 +12,7 @@ package com.bookstore;
  * * addBook(Book book)	    Adds a new book
  * * updateBook(Book book)	Updates existing book by ID
  * * getBookById(int id)	Loads a book’s info for editing
+ * * deleteBookById(int id) Deletes an existing book by ID
  */
 
 import java.sql.*;
@@ -174,5 +176,21 @@ public class BookstoreDB {
         }
 
         return null;
+    }
+
+    // Delete a book by ID
+    public static boolean deleteBookById(int id) {
+        String sql = "DELETE FROM jess_bookstore_books WHERE id = ?";
+
+        try (Connection conn = getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            return stmt.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

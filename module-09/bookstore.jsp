@@ -11,6 +11,7 @@
     String action = request.getMethod(); // GET or POST
     String genreFilter = request.getParameter("genre");
     String editIdStr = request.getParameter("editId");
+    String deleteIdStr = request.getParameter("deleteId");
 
     // POST handling: add or update book
     if ("POST".equalsIgnoreCase(action)) {
@@ -80,6 +81,17 @@
         }
     }
 
+    // delete the book by ID...
+    if (deleteIdStr != null && !deleteIdStr.trim().isEmpty()) {
+        try {
+            int deleteId = Integer.parseInt(deleteIdStr);
+            boolean deleted = BookstoreDB.deleteBookById(deleteId);
+            feedbackMsg = deleted ? "Book deleted successfully." : "Failed to delete book.";
+        } catch (NumberFormatException e) {
+            feedbackMsg = "Invalid book ID for deletion.";
+        }
+    }
+
     // Load genres for dropdown
     List<String> genres = BookstoreDB.getAllGenres();
 
@@ -142,7 +154,7 @@
                         <th>Subgenre</th>
                         <th>Stock</th>
                         <th>Cost ($)</th>
-                        <th>Edit</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -156,10 +168,16 @@
                         <td><%= book.getStock() %></td>
                         <td><%= book.getCost() %></td>
                         <td>
-                            <form method="get" action="bookstore.jsp" style="margin:0;">
-                                <input type="hidden" name="editId" value="<%= book.getId() %>" />
-                                <button type="submit">Edit</button>
-                            </form>
+                            <div style="display:flex; gap:0.5em; align-items:center;">
+                                <form method="get" action="bookstore.jsp" style="margin:0;">
+                                    <input type="hidden" name="editId" value="<%= book.getId() %>" />
+                                    <button type="submit" title="Edit" style="background:none; border:none; cursor:pointer; font-size:1.2em;">✏️</button>
+                                </form>
+                                <form method="get" action="bookstore.jsp" style="margin:0;" onsubmit="return confirm('Are you sure you want to delete this book?');">
+                                    <input type="hidden" name="deleteId" value="<%= book.getId() %>" />
+                                    <button type="submit" title="Delete" style="background:none; border:none; cursor:pointer; font-size:1.2em;">🗑️</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 <% } %>
