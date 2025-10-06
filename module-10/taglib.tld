@@ -1,0 +1,23 @@
+<tag>
+  <name>pagination</name>
+  <tag-class>myTags.PaginationTag</tag-class>
+  <body-content>empty</body-content>
+
+  <attribute>
+    <name>currentPage</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+
+  <attribute>
+    <name>totalPages</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+
+  <attribute>
+    <name>baseUrl</name>
+    <required>true</required>
+    <rtexprvalue>true</rtexprvalue>
+  </attribute>
+</tag>
